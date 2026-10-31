@@ -63,4 +63,13 @@ public class ArvoreMorse {
         String caminhoDireita = buscarCodigo(atual.direita, letraProcurada, caminhoAtual + "-");
         return caminhoDireita;
     }
+
+    public String codificarPalavra(String palavra){
+        String morseFinal = "";
+        for (int i = 0; i < palavra.length(); i++){
+            String letra = String.valueOf(palavra.charAt(i));
+            morseFinal += buscarCodigo(this.raiz,letra,"") + " ";
+        }
+        return morseFinal.trim();
+    }
 }
