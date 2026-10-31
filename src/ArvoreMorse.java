@@ -41,4 +41,14 @@ public class ArvoreMorse {
         }
         return atual.caractere;
     }
+
+    public String decodificarPalavra(String morsePalavra){
+        String[] codigos = morsePalavra.split(" ");
+        String palavraFinal = "";
+        for (int i = 0; i < codigos.length;i++){
+            palavraFinal += decodificarLetra(codigos[i]);
+        }
+
+        return palavraFinal;
+    }
 }
