@@ -17,10 +17,28 @@ public class ArvoreMorse {
                 }
                 atual = atual.esquerda;
             } else if (simbolo == '-') {
-                // 1. O que fazemos aqui para abrir caminho e avançar para a direita?
+                if (atual.direita == null) {
+                    atual.direita = new No("");
+                }
+                atual = atual.direita;
             }
         }
+        atual.caractere = caractere;
+    }
 
-        // 2. Fora do for, já chegamos na posição final. Como salvamos o 'caractere' no nó 'atual'?
+    public String decodificarLetra(String codigoMorse) {
+        No atual = raiz;
+        for (int i = 0; i < codigoMorse.length(); i++) {
+            char simbolo = codigoMorse.charAt(i);
+
+            if (simbolo == '.') {
+                atual = atual.esquerda;
+            } else if (simbolo == '-') {
+                atual = atual.direita;
+            } else {
+                return "";
+            }
+        }
+        return atual.caractere;
     }
 }
