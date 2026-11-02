@@ -1,5 +1,5 @@
 public class ArvoreMorse {
-    private No raiz;
+    public No raiz;
 
     public ArvoreMorse() {
         this.raiz = new No("");
