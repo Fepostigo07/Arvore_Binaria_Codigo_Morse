@@ -54,12 +54,9 @@ public class ArvoreMorse {
 
     private String buscarCodigo(No atual, String letraProcurada, String caminhoAtual){
         if(atual == null) return null;
-
         if (atual.caractere.equalsIgnoreCase(letraProcurada)) return caminhoAtual;
-
         String caminhoEsquerda = buscarCodigo(atual.esquerda, letraProcurada,caminhoAtual + ".");
         if (caminhoEsquerda != null) return caminhoEsquerda;
-
         String caminhoDireita = buscarCodigo(atual.direita, letraProcurada, caminhoAtual + "-");
         return caminhoDireita;
     }
