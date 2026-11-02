@@ -5,6 +5,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import java.util.Scanner;
 
 public class TreeVisualizer extends Application {
 
@@ -59,10 +60,24 @@ public class TreeVisualizer extends Application {
         primaryStage.setTitle("Visualizador de Árvore Binária");
 
         ArvoreMorse arvore = new ArvoreMorse();
+        SintetizadorMorse sintetizador = new SintetizadorMorse();
 
-        // 1. Adicione o alfabeto com seus códigos Morse aqui (ou no construtor da ArvoreMorse)
+        Scanner sc = new Scanner(System.in);
 
-        // 2. Interação com o usuário e som aqui
+        System.out.println("Digite uma palavra: ");
+        String palavra = sc.nextLine();
+        String morse = arvore.codificarPalavra(palavra);
+        System.out.println("A palavra " + palavra + " codificada, fica: " + morse);
+        sintetizador.reproduzirMorse(morse);
+
+        System.out.println("Digite uma palavra em morse: ");
+        String palavraEmMorse = sc.nextLine();
+        String palavraTrduzida = arvore.decodificarPalavra(palavraEmMorse);
+        System.out.println("A palavra em morse " + palavraEmMorse + " traduzida, fica: " + palavraTrduzida);
+
+        try {
+            Thread.sleep(200);
+        } catch (Exception e) {}
 
         // Inicialização da Janela
         int height = getHeight(arvore.raiz);

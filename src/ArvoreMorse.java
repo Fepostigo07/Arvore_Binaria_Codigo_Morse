@@ -3,6 +3,16 @@ public class ArvoreMorse {
 
     public ArvoreMorse() {
         this.raiz = new No("");
+        String[][] alfabeto = {
+                {"A", ".-"}, {"B", "-..."}, {"C", "-.-."}, {"D", "-.."}, {"E", "."},
+                {"F", "..-."}, {"G", "--."}, {"H", "...."}, {"I", ".."}, {"J", ".---"},
+                {"K", "-.-"}, {"L", ".-.."}, {"M", "--"}, {"N", "-."}, {"O", "---"},
+                {"P", ".--."}, {"Q", "--.-"}, {"R", ".-."}, {"S", "..."}, {"T", "-"},
+                {"U", "..-"}, {"V", "...-"}, {"W", ".--"}, {"X", "-..-"}, {"Y", "-.--"}, {"Z", "--.."}
+        };
+        for (String[] par : alfabeto) {
+            inserir(par[0], par[1]);
+        }
     }
 
     public void inserir(String caractere, String codigoMorse) {
